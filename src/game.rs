@@ -29,7 +29,12 @@ pub struct Game<'a, A: Agent, B: Agent> {
     settings: Settings
 }
 
-impl<A: Agent, B: Agent> Game<'_, A, B> {
+impl<'a, A: Agent, B: Agent> Game<'a, A, B> {
+
+    pub fn new(settings: Settings, a: &'a A, b: &'a B) -> Self {
+        Self { a, b, a_so_far: Vec::new(), b_so_far: Vec::new(), settings }
+    }
+
     fn produce_records(&self) -> (Vec<Exchange>, Vec<Exchange>) {
         let mut for_a: Vec<Exchange> = Vec::new();
         let mut for_b: Vec<Exchange> = Vec::new();
@@ -45,7 +50,7 @@ impl<A: Agent, B: Agent> Game<'_, A, B> {
 
     fn get_actions(&self) -> (Action, Action) {
         let (for_a, for_b) = self.produce_records();
-        (A::choose(for_a), B::choose(for_b))
+        (self.a.choose(for_a), self.b.choose(for_b))
     }
 
     fn get_score(&self) -> (usize, usize) {

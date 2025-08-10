@@ -2,7 +2,8 @@ use crate::exchange::Exchange;
 use crate::exchange::Action;
 
 pub trait Agent {
-    fn choose(previous_moves: Vec<Exchange>) -> Action;
+    fn spawn() -> Self where Self: Sized; 
+    fn choose(&self, previous_moves: Vec<Exchange>) -> Action;
 }
 
 // Agents
