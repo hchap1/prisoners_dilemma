@@ -1,6 +1,6 @@
 mod game;
-mod agent;
 mod exchange;
+mod agents;
 
 fn main() {
 

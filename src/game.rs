@@ -1,6 +1,6 @@
 use crate::exchange::Exchange;
 use crate::exchange::Action;
-use crate::agent::Agent;
+use crate::agents::Agent;
 
 pub struct Settings {
     pub mutual_cooperation: usize,

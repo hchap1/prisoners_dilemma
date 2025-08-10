@@ -19,11 +19,18 @@ impl Action {
             }
         }
     }
+
+    pub fn opposite(self) -> Self {
+        match self {
+            Self::Cooperate => Self::Defect,
+            Self::Defect => Self::Cooperate
+        }
+    }
 }
 
 pub struct Exchange {
-    this: Action,
-    that: Action
+    pub this: Action,
+    pub that: Action
 }
 
 impl Exchange {
