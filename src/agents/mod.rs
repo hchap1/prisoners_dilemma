@@ -7,3 +7,4 @@ pub trait Agent {
 
 // Agents
 pub mod opposite_of_last;
+pub mod only_trust_once;
